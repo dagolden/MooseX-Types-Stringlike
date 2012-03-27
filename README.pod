@@ -77,9 +77,9 @@ You will be notified automatically of any progress on your issue.
 This is open source software.  The code repository is available for
 public review and contribution under the terms of the license.
 
-L<https://github.com/dagolden/moosex-types-stringable>
+L<https://github.com/dagolden/moosex-types-stringlike>
 
-  git clone https://github.com/dagolden/moosex-types-stringable.git
+  git clone https://github.com/dagolden/moosex-types-stringlike.git
 
 =head1 AUTHOR
 

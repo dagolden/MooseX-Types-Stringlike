@@ -61,11 +61,11 @@
          "mailto" : "bug-moosex-types-stringlike at rt.cpan.org",
          "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=MooseX-Types-Stringlike"
       },
-      "homepage" : "https://github.com/dagolden/moosex-types-stringable",
+      "homepage" : "https://github.com/dagolden/moosex-types-stringlike",
       "repository" : {
          "type" : "git",
-         "url" : "https://github.com/dagolden/moosex-types-stringable.git",
-         "web" : "https://github.com/dagolden/moosex-types-stringable"
+         "url" : "https://github.com/dagolden/moosex-types-stringlike.git",
+         "web" : "https://github.com/dagolden/moosex-types-stringlike"
       }
    },
    "version" : "0.001"
