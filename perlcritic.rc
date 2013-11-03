@@ -13,10 +13,10 @@ allow = refs
 [-ControlStructures::ProhibitUnlessBlocks]
 [-Documentation::RequirePodSections]
 [-InputOutput::ProhibitInteractiveTest]
-[-Miscellanea::RequireRcsKeywords]
 [-References::ProhibitDoubleSigils]
 [-RegularExpressions::RequireExtendedFormatting]
 [-InputOutput::ProhibitTwoArgOpen]
+[-Modules::ProhibitEvilModules]
 
 # Turn this on
 [Lax::ProhibitStringyEval::ExceptForRequire]
