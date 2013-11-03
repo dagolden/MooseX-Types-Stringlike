@@ -2,6 +2,10 @@ Revision history for MooseX-Types-Stringable
 
 {{$NEXT}}
 
+    [DOCUMENTATION]
+
+    - Fixed missing =encoding command
+
 0.001     2012-03-26 22:55:10 EST5EDT
     - initial release
 
