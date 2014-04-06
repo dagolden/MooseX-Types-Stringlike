@@ -6,8 +6,8 @@ package MooseX::Types::Stringlike;
 # ABSTRACT: Moose type constraints for strings or string-like objects
 # VERSION
 
-use MooseX::Types -declare => [ qw/Stringable Stringlike/ ];
-use MooseX::Types::Moose qw/Str Object/;
+use MooseX::Types -declare => [ qw/Stringable Stringlike ArrayRefOfStringable ArrayRefOfStringlike / ];
+use MooseX::Types::Moose qw/Str Object ArrayRef/;
 use overload ();
 
 # Thanks ilmari for suggesting something like this
@@ -22,6 +22,17 @@ coerce Stringlike,
   from Stringable,
   via { "$_" };
 
+
+subtype ArrayRefOfStringable,
+  as ArrayRef[Stringable];
+
+subtype ArrayRefOfStringlike,
+  as ArrayRef[Stringlike];
+
+coerce ArrayRefOfStringlike,
+  from ArrayRefOfStringable,
+  via { [ map { "$_" } @$_ ] };
+
 1;
 
 =for Pod::Coverage method_names_here
@@ -30,9 +41,9 @@ coerce Stringlike,
 
   package Foo;
   use Moose;
-  use MooseX::Types::Stringlike qw/Stringlike Stringable/;
-  
-  has path => ( 
+  use MooseX::Types::Stringlike qw/Stringlike Stringable ArrayRefOfStringlike ArrayRefOfStringable/;
+
+  has path => (
     is => 'ro',
     isa => Stringlike,
     coerce => 1
@@ -41,6 +52,17 @@ coerce Stringlike,
   has stringable_object => (
     is => 'ro',
     isa => Stringable,
+  );
+
+  has paths => (
+    is => 'ro',
+    isa => ArrayRefOfStringlike,
+    coerce => 1
+  );
+
+  has stringable_objects => (
+    is => 'ro',
+    isa => ArrayRefOfStringable,
   );
 
 =head1 DESCRIPTION
@@ -62,11 +84,21 @@ a string.
 
 C<Stringable> is a subtype of C<Object> where the object has overloaded stringification.
 
+=head2 ArrayRefOfStringlike
+
+C<ArrayRefStringlike> is a subtype of C<ArrayRef[Str]>.  It can coerce C<ArrayRefOfStringable> objects into
+an arrayref of strings.
+
+=head2 ArrayRefOfStringable
+
+C<ArrayRefOfStringable> is a subtype of C<ArrayRef[Object]> where the objects have overloaded stringification.
+
 =head1 SEE ALSO
 
 =for :list
 * L<Moose::Manual::Types>
 * L<MooseX::Types>
+* L<MooseX::Types::Moose>
 
 =head1 ACKNOWLEDGMENTS
 
