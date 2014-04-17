@@ -1,5 +1,5 @@
 language: perl
-script: prove -lmr t
+script: prove -lr t
 install:
   - cpanm -n -q --skip-satisfied --installdeps .
 perl:
